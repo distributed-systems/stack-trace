@@ -1,0 +1,25 @@
+{
+  "name": "@distributed-systems/stack-trace",
+  "version": "1.0.0",
+  "description": "Get clean, standardized stack traces from V8 Error objects",
+  "main": "npm/src/StackTrace.js",
+  "scripts": {
+    "test": "node --experimental-modules --no-warnings ./node_modules/.bin/section ./test/*.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/distributed-systems/stack-trace.git"
+  },
+  "keywords": [
+    "callsite"
+  ],
+  "author": "Michael van der Weg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/distributed-systems/stack-trace/issues"
+  },
+  "homepage": "https://github.com/distributed-systems/stack-trace#readme",
+  "devDependencies": {
+    "section-tests": "^2.2.3"
+  }
+}
