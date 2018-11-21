@@ -15,7 +15,7 @@ section('Base Dir', (section) => {
             a();
         })().catch((err) => {
             const baseDir = path.dirname(path.dirname(new URL(import.meta.url).pathname));
-            const stack = new StackTrace({ baseDir }).getStack(err);
+            const stack = new StackTrace().getStack(err, baseDir);
 
             assert(stack);
             assert(stack.length > 2);
