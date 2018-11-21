@@ -11,9 +11,11 @@
     "url": "git+https://github.com/distributed-systems/stack-trace.git"
   },
   "keywords": [
+    "stack",
+    "stack-trace",
     "callsite"
   ],
-  "author": "Michael van der Weg",
+  "author": "Lina van der Weg",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/distributed-systems/stack-trace/issues"
