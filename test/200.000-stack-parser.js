@@ -1,6 +1,6 @@
-import section from '../es-modules/distributed-systems/section-tests/1.0.0+/index.mjs';
+import section from '../es-modules/distributed-systems/section-tests/1.0.0+/index.js';
 import assert from 'assert';
-import StackTrace from '../index.mjs';
+import StackTrace from '../StackTrace.js';
 
 
 
@@ -17,7 +17,7 @@ section('Stack-Parser', (section) => {
 
             assert(stack);
             assert(stack.length > 2);
-            assert(stack[0].source.endsWith('200.000-stack-parser.mjs'));
+            assert(stack[0].source.endsWith('200.000-stack-parser.js'));
             assert.equal(stack[0].name, 'a');
             assert(stack[0].line > 0);
             assert(stack[0].line > 0);
@@ -37,8 +37,8 @@ section('Stack-Parser', (section) => {
 
             assert(stack);
             assert(stack.length > 2);
-            assert(stack[0].source.endsWith('200.000-stack-parser.mjs'));
-            assert.equal(stack[0].name, 'Array.apply.map');
+            assert(stack[0].source.endsWith('200.000-stack-parser.js'));
+            assert.equal(stack[1].name, 'Array.map');
             assert(stack[0].line > 0);
             assert(stack[0].line > 0);
         });
@@ -59,7 +59,7 @@ section('Stack-Parser', (section) => {
 
             assert(stack);
             assert(stack.length > 2);
-            assert(stack[0].source.endsWith('200.000-stack-parser.mjs'));
+            assert(stack[0].source.endsWith('200.000-stack-parser.js'));
             assert.equal(stack[0].name, 'new Cls');
             assert(stack[0].line > 0);
             assert(stack[0].line > 0);
@@ -81,7 +81,7 @@ section('Stack-Parser', (section) => {
 
             assert(stack);
             assert(stack.length > 2);
-            assert(stack[0].source.endsWith('200.000-stack-parser.mjs'));
+            assert(stack[0].source.endsWith('200.000-stack-parser.js'));
             assert.equal(stack[0].name, 'Cls.doThings');
             assert(stack[0].line > 0);
             assert(stack[0].line > 0);
@@ -99,7 +99,7 @@ section('Stack-Parser', (section) => {
 
             assert(stack);
             assert(stack.length > 2);
-            assert(stack[0].source.endsWith('200.000-stack-parser.mjs'));
+            assert(stack[0].source.endsWith('200.000-stack-parser.js'));
             assert.equal(stack[0].name, 'eval');
             assert(stack[0].line > 0);
             assert(stack[0].line > 0);

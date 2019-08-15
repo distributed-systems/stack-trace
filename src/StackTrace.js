@@ -1,4 +1,4 @@
-import Callsite from './Callsite.mjs';
+import Callsite from './Callsite.js';
 
 
 /**

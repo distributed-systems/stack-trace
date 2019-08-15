@@ -1,6 +1,6 @@
-import section from '../es-modules/distributed-systems/section-tests/1.0.0+/index.mjs';
+import section from '../es-modules/distributed-systems/section-tests/1.0.0+/index.js';
 import assert from 'assert';
-import StackTrace from '../index.mjs';
+import StackTrace from '../StackTrace.js';
 import path from 'path';
 
 
@@ -19,7 +19,7 @@ section('Base Dir', (section) => {
 
             assert(stack);
             assert(stack.length > 2);
-            assert.equal(stack[0].source, 'test/300.000-base-dir.mjs');
+            assert.equal(stack[0].source, 'test/300.000-base-dir.js');
         });
     });
 });

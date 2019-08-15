@@ -1,4 +1,4 @@
-import Callsite from './Callsite.mjs';
+import Callsite from './Callsite.js';
 
 
 /**
@@ -10,31 +10,17 @@ export default class StackTrace {
 
 
     /**
-     * set up the parser
-     *
-     * @param      {Object}  arg1          options object
-     * @param      {string}  arg1.baseDir  if a stack contains a file in this
-     *                                     directory it gets stripped from it
-     */
-    constructor({
-        baseDir,
-    } = {}) {
-        this.baseDir = baseDir;
-    }
-
-
-    /**
      * returns a structured stack trace for v8 errors
      *
      * @param      {Error}            err     the error to get the stack from
      * @return     {Array<Callsite>}  The stack.
      */
-    getStack(err) {
+    getStack(err, baseDir) {
         if (!(err instanceof Error)) {
             throw new Error(`Cannot get stack from non Error!`);
         }
 
-        return this.getV8StackFrames(err);
+        return this.getV8StackFrames(err, baseDir);
     }
 
 
@@ -47,7 +33,7 @@ export default class StackTrace {
      * @param      {Error}  err     The error
      * @return     {Array}   stack frames
      */
-    getV8StackFrames(err) {
+    getV8StackFrames(err, baseDir) {
         // try to get the structured v8 stack trace. That may be impossible if a
         // user already has accessed the stack property before this method was
         // called. V8 converts the structured stack trace into a string when its
@@ -96,7 +82,7 @@ export default class StackTrace {
                         source: location && location.source,
                         line: location && location.line,
                         column: location && location.column,
-                        baseDir: this.baseDir,
+                        baseDir: baseDir,
                     });
                 } else {
                     return new Callsite({
@@ -104,7 +90,7 @@ export default class StackTrace {
                         source: frame.getFileName(),
                         line: frame.getLineNumber(),
                         column: frame.getColumnNumber(),
-                        baseDir: this.baseDir,
+                        baseDir: baseDir,
                     });
                 }                
             });

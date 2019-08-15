@@ -1,6 +1,6 @@
-import section from '../es-modules/distributed-systems/section-tests/1.0.0+/index.mjs';
+import section from '../es-modules/distributed-systems/section-tests/1.0.0+/index.js';
 import assert from 'assert';
-import StackTrace from '../index.mjs';
+import StackTrace from '../StackTrace.js';
 
 
 
@@ -18,7 +18,7 @@ section('String Stack-Parser', (section) => {
 
             assert(stack);
             assert(stack.length > 2);
-            assert(stack[0].source.endsWith('100.000-stringified-stack-parser.mjs'));
+            assert(stack[0].source.endsWith('100.000-stringified-stack-parser.js'));
             assert.equal(stack[0].name, 'a');
             assert(stack[0].line > 0);
             assert(stack[0].line > 0);
@@ -36,11 +36,10 @@ section('String Stack-Parser', (section) => {
         })().catch((err) => {
             err.stack; // stringify the stack
             const stack = new StackTrace().getStack(err);
-
             assert(stack);
             assert(stack.length > 2);
-            assert(stack[0].source.endsWith('100.000-stringified-stack-parser.mjs'));
-            assert.equal(stack[0].name, 'Array.apply.map');
+            assert(stack[0].source.endsWith('100.000-stringified-stack-parser.js'));
+            assert.equal(stack[1].name, 'Array.map');
             assert(stack[0].line > 0);
             assert(stack[0].line > 0);
         });
@@ -62,7 +61,7 @@ section('String Stack-Parser', (section) => {
 
             assert(stack);
             assert(stack.length > 2);
-            assert(stack[0].source.endsWith('100.000-stringified-stack-parser.mjs'));
+            assert(stack[0].source.endsWith('100.000-stringified-stack-parser.js'));
             assert.equal(stack[0].name, 'new Cls');
             assert(stack[0].line > 0);
             assert(stack[0].line > 0);
@@ -85,7 +84,7 @@ section('String Stack-Parser', (section) => {
 
             assert(stack);
             assert(stack.length > 2);
-            assert(stack[0].source.endsWith('100.000-stringified-stack-parser.mjs'));
+            assert(stack[0].source.endsWith('100.000-stringified-stack-parser.js'));
             assert.equal(stack[0].name, 'Cls.doThings');
             assert(stack[0].line > 0);
             assert(stack[0].line > 0);
@@ -103,7 +102,7 @@ section('String Stack-Parser', (section) => {
 
             assert(stack);
             assert(stack.length > 2);
-            assert(stack[0].source.endsWith('100.000-stringified-stack-parser.mjs'));
+            assert(stack[0].source.endsWith('100.000-stringified-stack-parser.js'));
             assert.equal(stack[0].name, 'eval');
             assert(stack[0].line > 0);
             assert(stack[0].line > 0);
